@@ -8,14 +8,14 @@ class AutomobileVO(models.Model):
 
 
 class SalesPerson(models.Model):
-    name = models.CharField(max_length=255, unique=True)
+    name = models.CharField(max_length=255)
     employee_number = models.PositiveSmallIntegerField(unique=True)
 
 
 class PotentialCustomer(models.Model):
-    name = models.CharField(max_length=255, unique=True)
+    name = models.CharField(max_length=255)
     address = models.CharField(max_length=255)
-    phone_number = models.CharField(max_length=30)
+    phone_number = models.CharField(max_length=30, unique=True)
 
 
 class SalesRecord(models.Model):
@@ -37,4 +37,4 @@ class SalesRecord(models.Model):
         on_delete=models.PROTECT,
     )
 
-    price = models.DecimalField(max_digits=999, decimal_places=2)
+    price = models.CharField(max_length=255)

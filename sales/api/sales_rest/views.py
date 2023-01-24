@@ -37,10 +37,10 @@ def api_salespersons(request):
 
 
 @require_http_methods(["DELETE", "GET", "PUT"])
-def api_salesperson(request, pk):
+def api_salesperson(request, employee_number):
     if request.method == "GET":
         try:
-            salesperson = SalesPerson.objects.get(id=pk)
+            salesperson = SalesPerson.objects.get(employee_number=employee_number)
             return JsonResponse(
                 salesperson,
                 encoder=SalesPersonEncoder,
@@ -52,7 +52,7 @@ def api_salesperson(request, pk):
             return response
     elif request.method == "DELETE":
         try:
-            salesperson = SalesPerson.objects.get(id=pk)
+            salesperson = SalesPerson.objects.get(employee_number=employee_number)
             salesperson.delete()
             return JsonResponse(
                 salesperson,
@@ -64,7 +64,7 @@ def api_salesperson(request, pk):
     else:
         try:
             content = json.loads(request.body)
-            salesperson = SalesPerson.objects.get(id=pk)
+            salesperson = SalesPerson.objects.get(employee_number=employee_number)
 
             props = ["name", "employee_number"]
             for prop in props:
@@ -88,7 +88,7 @@ def api_potential_customers(request):
         potential_customers = PotentialCustomer.objects.all()
         return JsonResponse(
             {"potential_customers": potential_customers},
-            encoder=SalesPersonEncoder,
+            encoder=PotentialCustomerEncoder,
         )
     else:
         try:
@@ -228,28 +228,3 @@ def api_sales_record(request, pk):
             response = JsonResponse({"message": "Does not exist"})
             response.status_code = 404
             return response
-
-
-@require_http_methods(["GET"])
-def api_automobileVOs(request):
-    automobiles = AutomobileVO.objects.all()
-    return JsonResponse (
-        {"automobiles": automobiles},
-        encoder=AutomobileVOEncoder,
-    )
-
-
-@require_http_methods(["DELETE"])
-def api_automobileVO(request, pk):
-    try:
-        vin = AutomobileVO.objects.get(id=pk)
-        vin.delete()
-        return JsonResponse(
-            vin,
-            encoder=AutomobileVOEncoder,
-            safe=False,
-        )
-    except AutomobileVO.DoesNotExist:
-        response = JsonResponse({"message": "Does not exist"})
-        response.status_code = 404
-        return response
