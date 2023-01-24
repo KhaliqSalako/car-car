@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import Manufacturer, VehicleModel, Automobile
+from .models import ServiceAppointment, ServiceTechnician, AutomobileVO
 
 
-admin.site.register(Automobile)
-admin.site.register(Manufacturer)
-admin.site.register(VehicleModel)
+admin.site.register(ServiceAppointment)
+admin.site.register(ServiceTechnician)
+admin.site.register(AutomobileVO)
