@@ -2,7 +2,7 @@
 
 Team:
 
-* Person 1 - Which microservice?
+* Khaliq - Service
 * Kenny - Sales
 
 ## Design
