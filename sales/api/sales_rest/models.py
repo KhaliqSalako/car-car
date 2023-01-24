@@ -25,7 +25,7 @@ class SalesRecord(models.Model):
         on_delete=models.PROTECT,
     )
 
-    sales_person = models.ForeignKey(
+    salesperson = models.ForeignKey(
         SalesPerson,
         related_name="employee",
         on_delete=models.PROTECT,
