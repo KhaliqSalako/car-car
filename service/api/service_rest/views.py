@@ -2,25 +2,25 @@ from django.shortcuts import render
 from django.views.decorators.http import require_http_methods
 import json
 from django.http import JsonResponse
-from .encoders import AutomobileVOEncoder, ServiceAppointmentEncoder, ServiceTehcnicianEncoder
+from .encoders import AutomobileVOEncoder, ServiceAppointmentEncoder, ServiceTechnicianEncoder
 # Create your views here.
 from .models import AutomobileVO, ServiceAppointment, ServiceTechnician
 
 @require_http_methods(["GET", "POST"])
 def api_servicetechnicians(request):
     if request.method == "GET":
-        servicetechnician = ServiceTechnician.objects.all()
+        service_technicians = ServiceTechnician.objects.all()
         return JsonResponse(
-            {"servicetechnician": servicetechnician},
-            encoder=ServiceTehcnicianEncoder,
+            {"service_technicians": service_technicians},
+            encoder=ServiceTechnicianEncoder,
         )
     else:
         try:
             content = json.loads(request.body)
             service_technician = ServiceTechnician.objects.create(**content)
             return JsonResponse(
-                servicetechnician,
-                encoder=ServiceTehcnicianEncoder,
+                service_technician,
+                encoder=ServiceTechnicianEncoder,
                 safe=False,
             )
         except:
@@ -32,13 +32,13 @@ def api_servicetechnicians(request):
 
 
 @require_http_methods(["DELETE", "GET", "PUT"])
-def api_servicetechnician(request, pk):
+def api_servicetechnician(request, employee_number):
     if request.method == "GET":
         try:
-            service_technician = ServiceTechnician.objects.get(id=pk)
+            service_technician = ServiceTechnician.objects.get(employee_number=employee_number)
             return JsonResponse(
                 service_technician,
-                encoder=ServiceTehcnicianEncoder,
+                encoder=ServiceTechnicianEncoder,
                 safe=False
             )
         except ServiceTechnician.DoesNotExist:
@@ -47,11 +47,11 @@ def api_servicetechnician(request, pk):
             return response
     elif request.method == "DELETE":
         try:
-            service_technician = ServiceTechnician.objects.get(id=pk)
+            service_technician = ServiceTechnician.objects.get(employee_number=employee_number)
             service_technician.delete()
             return JsonResponse(
                 service_technician,
-                encoder=ServiceTehcnicianEncoder,
+                encoder=ServiceTechnicianEncoder,
                 safe=False,
             )
         except ServiceTechnician.DoesNotExist:
@@ -59,10 +59,16 @@ def api_servicetechnician(request, pk):
     else: # PUT
         try:
             content = json.loads(request.body)
-            service_appointment = ServiceTechnician.objects.get(id=pk)
+            service_technician = ServiceTechnician.objects.get(employee_number=employee_number)
+
+            props = ["technician_name", "employee_number"]
+            for prop in props:
+                if prop in content:
+                    setattr(service_technician, prop, content[prop])
+            service_technician.save()
             return JsonResponse(
-                service_appointment,
-                encoder=ServiceTehcnicianEncoder,
+                service_technician,
+                encoder=ServiceTechnicianEncoder,
                 safe=False,
             )
         except ServiceTechnician.DoesNotExist:
@@ -82,8 +88,8 @@ def api_appointments(request):
     else:
         try:
             content = json.loads(request.body)
-            technician = ServiceTechnician.objects.get(employee_id=content["technician"])
-            content["technician"] = technician
+            technician = ServiceTechnician.objects.get(employee_number=content["assigned_technician"])
+            content["assigned_technician"] = technician
             appointment = ServiceAppointment.objects.create(**content)
 
             return JsonResponse(
@@ -125,6 +131,7 @@ def api_appointment(request, pk):
     else:
         try:
             content = json.loads(request.body)
+            ServiceAppointment.objects.filter(id=pk).update(**content)
             appointment = ServiceAppointment.objects.get(id=pk)
             return JsonResponse(
                 appointment,
