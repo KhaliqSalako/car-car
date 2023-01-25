@@ -35,6 +35,11 @@ function Nav() {
                 Add New Employee
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" aria-current="page" to="/customers/new">
+                Add New Customer
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>
