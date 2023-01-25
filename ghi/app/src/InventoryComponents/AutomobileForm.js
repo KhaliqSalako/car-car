@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 function AutomobileForm() {
     const [models, setModels] = useState([])
@@ -26,14 +26,14 @@ function AutomobileForm() {
         event.preventDefault();
 
         const fetchConfig = {
-            method: "POST",
+            method: 'POST',
             body: JSON.stringify(formData),
             headers: {
                 'Content-Type': 'application/json',
             },
         };
 
-        const response = await fetch("http://localhost:8100/api/automobiles/", fetchConfig);
+        const response = await fetch('http://localhost:8100/api/automobiles/', fetchConfig);
 
         if (response.ok) {
             setFormData({

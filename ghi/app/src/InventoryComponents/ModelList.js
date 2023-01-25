@@ -1,42 +1,46 @@
-import {useEffect, useState} from React
+import { useState, useEffect } from 'react';
 
 function ModelList() {
-    const [vehiclemodel, setVehicleModel] = useState([])
+    const [models, setModels] = useState([])
 
     const getData = async () => {
-        const response = await fetch("http://localhost:8100/api/vehiclemodel");
+        const response = await fetch('http://localhost:8100/api/models/');
 
         if (response.ok) {
             const data = await response.json();
-            setVehicleModel(data.vehiclemodel)
+            setModels(data.models);
         }
     }
 
     useEffect(() => {
         getData()
-    }, [])
+    }, []);
 
-    return(
-        <table className="table">
-        <thead>
-            <tr>
-                <th> Name </th>
-                <th> Photo </th>
-                <th> Manufacturer </th>
-            </tr>
-        </thead>
-        <tbody>
-            {vehiclemodel.map(vehiclemodel => {
-                return (
-                <tr key= { vehiclemodel.href }>
-                    <td> { vehiclemodel.name } </td>
-                    <td> { vehiclemodel.picture_url } </td>
-                    <td> { vehiclemodel.models } </td>
+    return (
+        <table className="table table-striped">
+            <thead>
+                <tr>
+                    <th>Manufacturer</th>
+                    <th>Name</th>
+                    <th>Photo</th>
                 </tr>
-
-            );})}
-        </tbody>
-    </table>
-    )
+            </thead>
+            <tbody>
+                {models.map(model => {
+                    return (
+                        <tr key={model.href}>
+                            <td>{model.manufacturer.name}</td>
+                            <td>{model.name}</td>
+                            {/* <div className="img-container"> */}
+                            <td>
+                                <img src={model.picture_url} className="card-img-top" />
+                            </td>
+                            {/* </div> */}
+                        </tr>
+                    );
+                })}
+            </tbody>
+        </table>
+    );
 }
 export default ModelList;
