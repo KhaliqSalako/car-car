@@ -5,6 +5,7 @@ import ManufacturerList from './InventoryComponents/ManufacturerList';
 import ManufacturerForm from './InventoryComponents/ManufacturerForm';
 import AutomobileList from './InventoryComponents/AutomobileList';
 import AutomobileForm from './InventoryComponents/AutomobileForm';
+import SalespersonForm from './SalesComponents/SalespersonForm';
 
 function App() {
   return (
@@ -12,13 +13,17 @@ function App() {
       <Nav />
       <Routes>
         <Route index element={<MainPage />} />
-        <Route path="manufacturers">
+        <Route path="manufacturers/">
           <Route index element={<ManufacturerList />} />
-          <Route path="add" element={<ManufacturerForm />} />
+          <Route path="new/" element={<ManufacturerForm />} />
         </Route>
-        <Route path="automobiles">
+        <Route path="automobiles/">
           <Route index element={<AutomobileList />} />
-          <Route path="add" element={<AutomobileForm />} />
+          <Route path="new/" element={<AutomobileForm />} />
+        </Route>
+        <Route path="employees/">
+          {/* <Route index element={<EmployeesList />} /> */}
+          <Route path="new/" element={<SalespersonForm />} />
         </Route>
       </Routes>
     </BrowserRouter>
