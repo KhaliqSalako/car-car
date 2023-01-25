@@ -12,6 +12,35 @@ function Nav() {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className='nav-item'>
               <NavLink className="nav-link" aria-current="page" to="/modellist/">Model List</NavLink>
+            <li className="nav-item">
+              <NavLink className="nav-link" aria-current="page" to="/manufacturers/">
+                Manufacturer List
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" aria-current="page" to="/manufacturers/new">
+                Add New Manufacturer
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" aria-current="page" to="/automobiles/">
+                Automobile List
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" aria-current="page" to="/automobiles/new">
+                Add New Automobile
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" aria-current="page" to="/employees/new">
+                Add New Employee
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" aria-current="page" to="/customers/new">
+                Add New Customer
+              </NavLink>
             </li>
           </ul>
         </div>
