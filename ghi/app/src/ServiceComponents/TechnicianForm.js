@@ -42,11 +42,11 @@ function TechnicianForm() {
             <h1 className="header-title">Add a New Technician</h1>
             <form onSubmit={handleSubmit} id="create-technician-form">
               <div className="form-floating mb-3">
-                <input onChange={handleFormChange} value={this.state.technician_name} placeholder="Technician Name" required type="text" name="technician_name" id="technician_name" className="form-control"/>
+                <input onChange={handleFormChange} value={formData.technician_name} placeholder="Technician Name" required type="text" name="technician_name" id="technician_name" className="form-control"/>
                 <label htmlFor="technician_name">Technician Name</label>
               </div>
               <div className="form-floating mb-3">
-                <input onChange={handleFormChange} value={this.state.employee_number} placeholder="Employee Number" required type="text" name="employee_number" id="employee_number" className="form-control"/>
+                <input onChange={handleFormChange} value={formData.employee_number} placeholder="Employee Number" required type="text" name="employee_number" id="employee_number" className="form-control"/>
                 <label htmlFor="employee_number">Employee Number</label>
               </div>
               <button className="btn btn-secondary">Add</button>
