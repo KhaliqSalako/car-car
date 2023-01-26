@@ -1,17 +1,17 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import MainPage from "./MainPage";
-import Nav from "./Nav";
-import ManufacturerList from "./InventoryComponents/ManufacturerList";
-import ManufacturerForm from "./InventoryComponents/ManufacturerForm";
-import ModelList from "./InventoryComponents/ModelList";
-import ModelForm from "./InventoryComponents/ModelForm";
-import AutomobileList from "./InventoryComponents/AutomobileList";
-import AutomobileForm from "./InventoryComponents/AutomobileForm";
-import SalespersonForm from "./SalesComponents/SalespersonForm";
-import CustomerForm from "./SalesComponents/CustomerForm";
-import SalesList from "./SalesComponents/SalesList";
-import SalesForm from "./SalesComponents/SalesForm";
-import SalesHistory from "./SalesComponents/SalesHistory";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import MainPage from './MainPage';
+import Nav from './Nav';
+import ManufacturerList from './InventoryComponents/ManufacturerList';
+import ManufacturerForm from './InventoryComponents/ManufacturerForm';
+import ModelList from './InventoryComponents/ModelList';
+import ModelForm from './InventoryComponents/ModelForm';
+import AutomobileList from './InventoryComponents/AutomobileList';
+import AutomobileForm from './InventoryComponents/AutomobileForm';
+import SalespersonForm from './SalesComponents/SalespersonForm';
+import CustomerForm from './SalesComponents/CustomerForm';
+import SalesList from './SalesComponents/SalesList';
+import SalesForm from './SalesComponents/SalesForm';
+import SalesHistory from './SalesComponents/SalesHistory';
 
 function App() {
   return (

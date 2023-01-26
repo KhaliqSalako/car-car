@@ -1,43 +1,26 @@
-import { useEffect, useState } from "react";
+import { useState } from 'react';
 
 function ManufacturerForm() {
-  // const [manufacturers, setManufacturers] = useState([])
   const [formData, setFormData] = useState({
-    name: "",
+    name: '',
   });
-
-  // const getData = async () => {
-  //     const response = await fetch('http://localhost:8100/api/manufacturers/');
-
-  //     if (response.ok) {
-  //         const data = await response.json();
-  //         setManufacturers(data.manufacturers);
-  //     }
-  // }
-
-  // useEffect(() => {
-  //     getData();
-  // }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     const fetchConfig = {
-      method: "POST",
+      method: 'POST',
       body: JSON.stringify(formData),
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     };
 
-    const response = await fetch(
-      "http://localhost:8100/api/manufacturers/",
-      fetchConfig
-    );
+    const response = await fetch('http://localhost:8100/api/manufacturers/', fetchConfig);
 
     if (response.ok) {
       setFormData({
-        name: "",
+        name: '',
       });
     }
   };
@@ -57,16 +40,7 @@ function ManufacturerForm() {
           <h1>New Manufacturer</h1>
           <form onSubmit={handleSubmit} id="Add New Manufacturer">
             <div className="form-floating mb-3">
-              <input
-                onChange={handleNameChange}
-                value={formData.name}
-                placeholder="Name"
-                required
-                type="text"
-                name="name"
-                id="name"
-                className="form-control"
-              />
+              <input onChange={handleNameChange} value={formData.name} placeholder="Name" required type="text" name="name" id="name" className="form-control" />
               <label htmlFor="name">Name</label>
             </div>
             <button className="btn btn-primary">Add</button>

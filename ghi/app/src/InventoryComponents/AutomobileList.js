@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 function AutomobileList() {
   const [automobiles, setAutomobiles] = useState([]);
 
   const getData = async () => {
-    const response = await fetch("http://localhost:8100/api/automobiles/");
+    const response = await fetch('http://localhost:8100/api/automobiles/');
 
     if (response.ok) {
       const data = await response.json();
@@ -29,7 +29,7 @@ function AutomobileList() {
           </tr>
         </thead>
         <tbody>
-          {automobiles.map((automobile) => {
+          {automobiles.map(automobile => {
             return (
               <tr key={automobile.href}>
                 <td>{automobile.vin}</td>

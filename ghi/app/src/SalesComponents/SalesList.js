@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 function SalesList() {
   const [sales, setSales] = useState([]);
 
   const getData = async () => {
-    const response = await fetch("http://localhost:8090/api/sales/");
+    const response = await fetch('http://localhost:8090/api/sales/');
 
     if (response.ok) {
       const data = await response.json();
@@ -29,7 +29,7 @@ function SalesList() {
           </tr>
         </thead>
         <tbody>
-          {sales.map((sale) => {
+          {sales.map(sale => {
             return (
               <tr key={sale.id}>
                 <td>{sale.salesperson.name}</td>

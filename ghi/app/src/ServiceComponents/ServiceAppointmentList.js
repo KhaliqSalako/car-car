@@ -14,7 +14,7 @@ function ServiceAppointmentList() {
 
     useEffect(() => {
         getData()
-    }, []);
+    }, [])
 
     async cancelAppointment() {
         const url = 'http://localhost:8080/api/appointments/'

@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 function ModelList() {
   const [models, setModels] = useState([]);
 
   const getData = async () => {
-    const response = await fetch("http://localhost:8100/api/models/");
+    const response = await fetch('http://localhost:8100/api/models/');
 
     if (response.ok) {
       const data = await response.json();
@@ -27,7 +27,7 @@ function ModelList() {
           </tr>
         </thead>
         <tbody>
-          {models.map((model) => {
+          {models.map(model => {
             return (
               <tr key={model.href}>
                 <td>{model.manufacturer.name}</td>

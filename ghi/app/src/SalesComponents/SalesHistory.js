@@ -1,17 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 function SalesHistory() {
   const [salespersons, setSalespersons] = useState([]);
-  const [choice, setChoice] = useState({ salesperson: "" });
+  const [choice, setChoice] = useState({salesperson: ''});
   const [salesrecords, setSalesRecords] = useState([]);
 
   const getData = async () => {
-    const responseSalespersons = await fetch(
-      "http://localhost:8090/api/employees/"
-    );
-    const responseSalesRecords = await fetch(
-      "http://localhost:8090/api/sales/"
-    );
+    const responseSalespersons = await fetch('http://localhost:8090/api/employees/');
+    const responseSalesRecords = await fetch('http://localhost:8090/api/sales/');
 
     if (responseSalespersons.ok && responseSalesRecords.ok) {
       const dataSalespersons = await responseSalespersons.json();
@@ -33,11 +29,8 @@ function SalesHistory() {
     });
   };
 
-  const filteredSalesRecords = salesrecords.filter(
-    (sale_record) =>
-      sale_record.salesperson.employee_number === Number(choice.salesperson)
-  );
-
+  const filteredSalesRecords = salesrecords.filter((sale_record) => sale_record.salesperson.employee_number === Number(choice.salesperson));
+  
     return (
         <div className="container">
           <div className="shadow p-4 mt-4">
