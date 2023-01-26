@@ -17,24 +17,22 @@ function ManufacturerList() {
     }, []);
 
     return (
-        <div className="container">
-            <table className="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {manufacturers.map(manufacturer => {
-                        return (
-                            <tr key={manufacturer.href}>
-                                <td>{manufacturer.name}</td>
-                            </tr>
-                        );
-                    })}
-                </tbody>
-            </table>
-        </div>
+        <table className="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                {manufacturers.map(manufacturer => {
+                    return (
+                        <tr key={manufacturer.href}>
+                            <td>{manufacturer.name}</td>
+                        </tr>
+                    );
+                })}
+            </tbody>
+        </table>
     );
 }
 
