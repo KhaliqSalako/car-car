@@ -65,6 +65,9 @@ function Nav() {
                 Salesperson History
               </NavLink>
             </li>
+            <li><NavLink className="nav-link"  aria-current="page" to="/appointments/">Appointment List</NavLink></li>
+            <li><NavLink className="nav-link"  aria-current="page" to="/appointments/history">Appointment History</NavLink></li>
+            <li><NavLink className="nav-link"  aria-current="page" to="/appointments/new">Add an Appointment</NavLink></li>
           </ul>
         </div>
       </div>

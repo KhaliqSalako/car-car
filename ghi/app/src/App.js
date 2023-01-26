@@ -12,6 +12,7 @@ import CustomerForm from './SalesComponents/CustomerForm';
 import SalesList from './SalesComponents/SalesList';
 import SalesForm from './SalesComponents/SalesForm';
 import SalesHistory from './SalesComponents/SalesHistory';
+import TechnicianForm from './ServiceComponents/TechnicianForm';
 
 function App() {
   return (
