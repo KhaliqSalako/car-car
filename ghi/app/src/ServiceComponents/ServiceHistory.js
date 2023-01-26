@@ -74,3 +74,5 @@ function ServiceHistory() {
     </div>
 )
 }
+
+export default ServiceHistory
