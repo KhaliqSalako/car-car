@@ -20,6 +20,7 @@ function EmployeesList() {
       setEmployees(dataEmployees.employees)
     }
   };
+
   useEffect(() => {
     getData();
   }, []);
