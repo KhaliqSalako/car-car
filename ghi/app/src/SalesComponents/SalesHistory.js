@@ -1,41 +1,42 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 function SalesHistory() {
-    const [salespersons, setSalespersons] = useState([])
-    const [choice, setChoice] = useState({salesperson: ''})
-    const [filteredSalesRecords, setFilteredSalesRecords] = useState([])
+  const [salespersons, setSalespersons] = useState([]);
+  const [choice, setChoice] = useState({ salesperson: "" });
+  const [salesrecords, setSalesRecords] = useState([]);
 
-    const getData = async () => {
-        const responseSalespersons = await fetch('http://localhost:8090/api/employees/');
-        const responseSalesRecords = await fetch('http://localhost:8090/api/sales/');
+  const getData = async () => {
+    const responseSalespersons = await fetch(
+      "http://localhost:8090/api/employees/"
+    );
+    const responseSalesRecords = await fetch(
+      "http://localhost:8090/api/sales/"
+    );
 
-        if (responseSalespersons.ok && responseSalesRecords.ok) {
-            const dataSalespersons = await responseSalespersons.json()
-            const dataSalesRecords = await responseSalesRecords.json()
+    if (responseSalespersons.ok && responseSalesRecords.ok) {
+      const dataSalespersons = await responseSalespersons.json();
+      const dataSalesRecords = await responseSalesRecords.json();
 
-            setSalespersons(dataSalespersons.salespersons);
-
-            let filteredSalesRecords = dataSalesRecords.sales_records.filter(sale_record => sale_record.salesperson.employee_number === choice.salesperson);
-            setFilteredSalesRecords(filteredSalesRecords)
-        }
+      setSalespersons(dataSalespersons.salespersons);
+      setSalesRecords(dataSalesRecords.sales_records);
     }
+  };
 
-    const handleChoice = async (e) =>{
-        const value = e.target.value;
-        const inputName = e.target.name;
-        setChoice( prevChoice => ({
-          ...prevChoice,
-          [inputName] : value
-        }));
-    }
+  useEffect(() => {
+    getData();
+  }, []);
 
-    useEffect(() => {
-        getData();
-    }, []);
+  const handleChoice = async (e) => {
+    const value = e.target.value;
+    setChoice({
+      salesperson: value,
+    });
+  };
 
-    useEffect(() => {
-        getData();
-    }, [choice.salesperson] )
+  const filteredSalesRecords = salesrecords.filter(
+    (sale_record) =>
+      sale_record.salesperson.employee_number === Number(choice.salesperson)
+  );
 
     return (
         <div className="container">
