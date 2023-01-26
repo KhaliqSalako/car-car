@@ -30,7 +30,7 @@ function SalesHistory() {
   };
 
   const filteredSalesRecords = salesrecords.filter((sale_record) => sale_record.salesperson.employee_number === Number(choice.salesperson));
-  
+
     return (
         <div className="container">
           <div className="shadow p-4 mt-4">
