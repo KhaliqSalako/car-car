@@ -11,7 +11,7 @@ function CustomerForm() {
         event.preventDefault();
 
         const fetchConfig = {
-            method: "POST",
+            method: 'POST',
             body: JSON.stringify(formData),
             headers: {
                 'Content-Type': 'application/json',
