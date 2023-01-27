@@ -53,7 +53,7 @@ function App() {
         <Route path="service_appointment/">
           <Route index element={<ServiceAppointmentList />} />
           <Route path="new/" element={<ServiceAppointmentForm />} />
-          {/* <Route path="history/" element={<ServiceHistory />} /> */}
+          <Route path="history/" element={<ServiceHistory />} />
         </Route>
         <Route path="service_technician/">
           <Route path="new/" element={<TechnicianForm />} />
