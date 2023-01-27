@@ -1,9 +1,8 @@
-from django.shortcuts import render
 from django.views.decorators.http import require_http_methods
 import json
 from django.http import JsonResponse
-from .encoders import AutomobileVOEncoder, ServiceAppointmentEncoder, ServiceTechnicianEncoder
-from .models import AutomobileVO, ServiceAppointment, ServiceTechnician
+from .encoders import ServiceAppointmentEncoder, ServiceTechnicianEncoder
+from .models import ServiceAppointment, ServiceTechnician
 
 
 @require_http_methods(["GET", "POST"])
