@@ -21,8 +21,3 @@ class ServiceAppointment(models.Model):
     reason_for_service = models.TextField()
     vip = models.BooleanField(default=False)
     is_finished = models.BooleanField(default=False)
-
-
-
-
-# Create your models here.

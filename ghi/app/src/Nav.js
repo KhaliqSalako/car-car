@@ -65,14 +65,31 @@ function Nav() {
                 Salesperson History
               </NavLink>
             </li>
-            <li><NavLink className="nav-link"  aria-current="page" to="/appointments/">Appointment List</NavLink></li>
-            <li><NavLink className="nav-link"  aria-current="page" to="/appointments/history">Appointment History</NavLink></li>
-            <li><NavLink className="nav-link"  aria-current="page" to="/appointments/new">Add an Appointment</NavLink></li>
+            <li className="nav-item">
+              <NavLink className="nav-link"  aria-current="page" to="service_appointment">
+                Appointment List
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link"  aria-current="page" to="/service_appointment/new">
+                Add an Appointment
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link"  aria-current="page" to="/service_appointment/history">
+                Appointment History
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link"  aria-current="page" to="/service_technician/new">
+                Add Service Technician
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>
     </nav>
-  )
+  );
 }
 
 export default Nav;
