@@ -16,6 +16,7 @@ import ServiceAppointmentList from './ServiceComponents/ServiceAppointmentList';
 import ServiceAppointmentForm from './ServiceComponents/ServiceAppointmentForm';
 import ServiceHistory from './ServiceComponents/ServiceHistory';
 import TechnicianForm from './ServiceComponents/TechnicianForm';
+import AutomobileDetails from './InventoryComponents/AutomobileDetail';
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         <Route path="automobiles/">
           <Route index element={<AutomobileList />} />
           <Route path="new/" element={<AutomobileForm />} />
+          <Route path=":vin" element={<AutomobileDetails />} />
         </Route>
         <Route path="employees/">
           {/* <Route index element={<EmployeesList />} /> */}

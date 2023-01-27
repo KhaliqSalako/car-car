@@ -66,7 +66,7 @@ function Nav() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link"  aria-current="page" to="service_appointment">
+              <NavLink className="nav-link"  aria-current="page" to="/service_appointment">
                 Appointment List
               </NavLink>
             </li>

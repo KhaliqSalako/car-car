@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function AutomobileList() {
   const [automobiles, setAutomobiles] = useState([]);
@@ -32,7 +33,11 @@ function AutomobileList() {
           {automobiles.map(automobile => {
             return (
               <tr key={automobile.href}>
-                <td>{automobile.vin}</td>
+                <td><Link to={{
+                  pathname: `/automobiles/${automobile.vin}`,
+                  state: {vin: automobile.vin, manufacturer: automobile.model.manufacturer}
+                }}>{automobile.vin}
+                </Link></td>
                 <td>{automobile.year}</td>
                 <td>{automobile.model.manufacturer.name}</td>
                 <td>{automobile.model.name}</td>
