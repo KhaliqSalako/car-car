@@ -2,13 +2,13 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 import json
 
+from .models import AutomobileVO, SalesPerson, PotentialCustomer, SalesRecord
+
 from .encoders import (
-    AutomobileVOEncoder,
     SalesPersonEncoder,
     PotentialCustomerEncoder,
     SalesRecordEncoder
 )
-from .models import AutomobileVO, SalesPerson, PotentialCustomer, SalesRecord
 
 
 @require_http_methods(["GET", "POST"])

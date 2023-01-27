@@ -35,7 +35,6 @@ function AutomobileList() {
               <tr key={automobile.href}>
                 <td><Link to={{
                   pathname: `/automobiles/${automobile.vin}`,
-                  state: {vin: automobile.vin, manufacturer: automobile.model.manufacturer}
                 }}>{automobile.vin}
                 </Link></td>
                 <td>{automobile.year}</td>

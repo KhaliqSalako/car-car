@@ -32,11 +32,9 @@ function ModelList() {
               <tr key={model.href}>
                 <td>{model.manufacturer.name}</td>
                 <td>{model.name}</td>
-                {/* <div className="img-container"> */}
                 <td>
                   <img src={model.picture_url} className="card-img-top" />
                 </td>
-                {/* </div> */}
               </tr>
             );
           })}

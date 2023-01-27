@@ -12,6 +12,7 @@ django.setup()
 
 from service_rest.models import AutomobileVO
 
+
 def get_automobiles():
     response = requests.get("http://localhost:8100/api/automobiles/")
     content = json.load(response.content)

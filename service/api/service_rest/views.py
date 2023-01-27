@@ -3,8 +3,8 @@ from django.views.decorators.http import require_http_methods
 import json
 from django.http import JsonResponse
 from .encoders import AutomobileVOEncoder, ServiceAppointmentEncoder, ServiceTechnicianEncoder
-# Create your views here.
 from .models import AutomobileVO, ServiceAppointment, ServiceTechnician
+
 
 @require_http_methods(["GET", "POST"])
 def api_servicetechnicians(request):
@@ -56,7 +56,7 @@ def api_servicetechnician(request, employee_number):
             )
         except ServiceTechnician.DoesNotExist:
             return JsonResponse({"message": "Does not exist"})
-    else: # PUT
+    else:
         try:
             content = json.loads(request.body)
             service_technician = ServiceTechnician.objects.get(employee_number=employee_number)
@@ -102,6 +102,7 @@ def api_appointments(request):
             response = JsonResponse({"message": "Technician entered does not exist"})
             response.status_code = 400
             return response
+
 
 @require_http_methods(["DELETE", "GET", "PUT"])
 def api_appointment(request, pk):
