@@ -64,7 +64,7 @@ function ServiceHistory() {
                     <td>{filteredServiceAppointment.assigned_technician.technician_name}</td>
                     <td>{filteredServiceAppointment.reason_for_service}</td>
                   </tr>
-                )
+                );
               })}
             </tbody>
           </table>
